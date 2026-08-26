@@ -29,6 +29,9 @@ jobs:
           cat lamp-site.tar.gz.part-* > lamp-site.tar.gz
           mkdir -p _site
           tar -xzf lamp-site.tar.gz -C _site
+          if [ -d overrides ]; then
+            cp -a overrides/. _site/
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
